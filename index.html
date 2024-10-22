@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Inscripcion</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Enlace al archivo CSS -->
+</head>
+<body>
+
+    <h1>Formulario de Inscripcion</h1>
+    <form id="dataForm">
+        <label for="name">Nombre:</label><br>
+        <input type="text" id="name" name="name" required><br>
+
+        <label for="name">Apellido:</label><br>
+        <input type="text" id="last-name" name="last-name" required><br>
+        
+        <label for="dob">Fecha de Nacimiento:</label><br>
+        <input type="date" id="dob" name="dob" required><br>
+        
+        <input type="checkbox" id="attend" name="attend">
+        <label for="attend">Asistiré al evento</label><br>
+        
+        <input type="submit" value="Enviar">
+    </form>
+
+    <script>
+        document.getElementById('dataForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Evita que se recargue la página
+
+            // Captura los valores del formulario
+            const name = document.getElementById('name').value;
+            const dob = document.getElementById('dob').value;
+            const attend = document.getElementById('attend').checked; // Captura el estado del checkbox
+
+            // Muestra los datos en un alert
+            alert(`Nombre: ${name}\nFecha de Nacimiento: ${dob}\nAsistiré al evento: ${attend ? 'Sí' : 'No'}`);
+
+            // Aquí puedes agregar lógica para guardar los datos (por ejemplo, enviarlos a un servidor)
+        });
+    </script>
+
+</body>
+</html>
